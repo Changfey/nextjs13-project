@@ -28,7 +28,6 @@ export default async function Home() {
           <TodoItem key={todo.id}  {...todo} toggleTodo={toggleTodo} />
         ))
       }
-
     </ul>
 
 
