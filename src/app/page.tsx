@@ -2,6 +2,7 @@ import { TodoItem } from "@/components/TodoItem";
 import { prisma } from "@/db";
 import { Todo } from "@/typing";
 import Link from "next/link";
+import RootLayout from "./layout";
 
 function getTodos() {
   return prisma.todo.findMany();
@@ -15,6 +16,7 @@ export default async function Home() {
 
     await prisma.todo.update({ where: { id }, data: { complete } })
   }
+
 
   return <>
     <header className="flex justify-between items-center mb-4">
@@ -30,6 +32,10 @@ export default async function Home() {
       }
     </ul>
 
+    
+
 
   </>
 }
+
+Home.Layout = RootLayout;
